@@ -71,6 +71,7 @@ CORS_ALLOW_METHODS = [
     "POST",
     "PUT",
 ]
+SESSION_COOKIE_SAMESITE = 'None'
 
 ROOT_URLCONF = 'api.urls'
 
