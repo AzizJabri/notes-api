@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "drf-notes-api.herokuapp.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -48,9 +48,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -61,7 +62,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
-
+CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",
